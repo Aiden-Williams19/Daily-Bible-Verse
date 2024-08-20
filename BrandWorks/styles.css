@@ -1,0 +1,175 @@
+/* Loader Styling */
+#loader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #000000; /* Blue background for loader */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 5s ease-in-out;
+    overflow: hidden;
+}
+
+.loader-text {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Hide the loader after fade-out */
+#loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Emoji Container */
+#emoji-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Emoji Styling */
+.emoji {
+    position: absolute;
+    font-size: 30px;
+    animation: pop 2s ease-in-out infinite;
+    opacity: 0;
+}
+
+/* Neon Effect */
+.neon {
+    color: #fff;
+    text-shadow:
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 15px #ff00ff,
+        0 0 20px #ff00ff,
+        0 0 30px #ff00ff,
+        0 0 40px #ff00ff,
+        0 0 55px #ff00ff,
+        0 0 75px #ff00ff;
+}
+
+/* Pop Animation */
+@keyframes pop {
+    0% {
+        transform: translateY(100vh);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+
+/* General Body Styling */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #070707;
+    color: #eee7e7;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Container Styling */
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(25, 226, 209, 0.1);
+    color: rgb(243, 237, 237);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+/* Heading Styling */
+h1 {
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Verse and Reference Styling */
+#verse {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+#reference {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+/* Explanation Styling */
+.explanation {
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+/* Save Button Styling */
+#save-verse-btn {
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #4a90e2;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#save-verse-btn:hover {
+    background-color: #357ab7;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .container {
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    #verse {
+        font-size: 14px;
+    }
+
+    #reference {
+        font-size: 12px;
+    }
+
+    .explanation {
+        font-size: 13px;
+    }
+
+    #save-verse-btn {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+}
