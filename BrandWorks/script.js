@@ -24,20 +24,25 @@ document.addEventListener("DOMContentLoaded", function() {
     // Generate emojis every 400ms
     setInterval(createEmojis, 400);
 
-    // Fetch a random image from Unsplash
+    // Fetch a daily verse from an API
+    fetch('https://beta.ourmanna.com/api/v1/get/?format=json')
+        .then(response => response.json())
+        .then(data => {
+            const verseText = data.verse.details.text;
+            const referenceText = data.verse.details.reference;
+
+            document.getElementById("verse").textContent = verseText;
+            document.getElementById("reference").textContent = referenceText;
+
+            // Optional: Generate a simple explanation based on the verse
+            document.getElementById("explanation").textContent = "Reflect on this verse and let it guide your day.";
+        })
+        .catch(error => console.error('Error fetching the verse:', error));
+
+    // Set a random background image from Unsplash
     const imageUrl = 'https://source.unsplash.com/random/1080x1920/?nature,landscape,bible';
     const container = document.querySelector('.container');
     container.style.backgroundImage = `url(${imageUrl})`;
-
-    // Example verse, explanation, and reference
-    const verseText = "For I know the plans I have for you, declares the LORD, plans to prosper you and not to harm you, plans to give you hope and a future.";
-    const referenceText = "Jeremiah 29:11";
-    const explanationText = "This verse reminds us that God has a plan for our lives, one that is filled with hope and a future. Trusting in His plan brings peace and purpose.";
-
-    // Set verse, reference, and explanation
-    document.getElementById("verse").textContent = verseText;
-    document.getElementById("reference").textContent = referenceText;
-    document.getElementById("explanation").textContent = explanationText;
 
     // Simulate a delay for demonstration purposes
     setTimeout(() => {
